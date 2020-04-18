@@ -1,0 +1,20 @@
+version: "3"
+services:
+  zuulclientone:
+    build:
+      context: ./ZuulClientOne
+    ports:
+      - "8040:8040"
+  zuulclienttwo:
+    build:
+      context: ./ZuulClientTwo
+    ports:
+      - "8050:8050"
+  zuulproxyserver:
+    build:
+      context: ./ZuulProxyServer
+    ports:
+      - "8000:8000"
+    depends_on:
+      - zuulclientone
+      - zuulclienttwo
