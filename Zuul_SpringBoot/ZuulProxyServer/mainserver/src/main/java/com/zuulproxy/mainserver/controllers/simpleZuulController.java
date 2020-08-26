@@ -9,8 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value="/simpleZuul/Controller")
 public class simpleZuulController {
 
-    @RequestMapping(value="/simpleZuulEndpoint", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(
+            value="/simpleZuulEndpoint",
+            method = RequestMethod.GET,
+            produces = "application/json")
     public ResponseEntity<String> controllerClientOneEndpointOne() {
-        return ResponseEntity.ok().body("This is hello zuul endpoint from zuul controller in zuul proxy service.");
+        return ResponseEntity.ok().body("This is hello zuul endpoint from " +
+                "zuul controller in zuul proxy service.");
     }
 }
